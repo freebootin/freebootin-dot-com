@@ -14,6 +14,9 @@ main() {
       --standalone "${dir}README.md"
   done
 
+  echo "Adding common files to archive..."
+  cp "${BASEDIR}"/common/* "${TMPDIR}"
+
   echo "Creating archive..."
   cd "${TMPDIR}" 
   tar cfz ../upload.tar.gz *
