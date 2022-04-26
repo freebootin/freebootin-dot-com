@@ -42,5 +42,5 @@ If life is a test I don't think it's a test how well we can listen to people. Ma
 
 Does anyone agree with this? Let me know your thoughts. Please help share this post. (Govern-ment - to cntrl the min](conspire-I-c)
 
-*End of conspiracy*
+**End of conspiracy**
 ---
