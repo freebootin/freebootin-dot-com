@@ -18,5 +18,5 @@ All nuke testing on Earth after 1945 caused a 7.2% increase of Xe-129 compared t
 Someone nuked the shit out of Mars and that's why the place is a fucking wasteland. Now here's another kicker. (((NASA))) had this evidence since Viking-1 measured Xe isotopes back in 1976, and they said nothing. Instead, people who said that pic related is artificial got ridiculed, even if any moron can see nature does not make shit like this.
 
 ~~[EvidenceforaLargeAnomalousNuclearExplosionsinMarsPast.pdf](http://spsr.utsi.edu/articles/EvidenceforaLargeAnomalousNuclearExplosionsinMarsPast.pdf)~~ broken
-
+[mars_nuked.pdf](/mars_nuked.pdf)
 **End of conspiracy**
