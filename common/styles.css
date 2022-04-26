@@ -5,3 +5,12 @@ body {
   font-family: monospace;
   background-color: black;
 }
+
+nav ul {
+  padding-inline-start: 0px;
+}
+
+nav li {
+  list-style: none;
+  display: inline;
+}
