@@ -10,6 +10,7 @@ recently.  I don't believe any of these are true, just entertaining.
 - [Buildings are Sentient and Evil](/buildings-are-evil.html)
 - [The Mushroom Conspiracy](/mushroom-conspiracy.html)
 - [Someone Nuked Mars](/mars-was-nuked.html)
+- [Parasites vs Fungus](/parasites-vs-fungus.html)
 
 ## Links
 These are sites I find interesting or useful.
