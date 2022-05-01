@@ -15,6 +15,6 @@ They are the worldly form for what you call Satan/Demons and a conduit for the i
 The Elites obey the orders from the interdimensional worm intelligence that are largely synonymous with the "Goa'uld" from the Stargate series, which purports that all ancient elites were human hosts of an alien brain worm which mind controls them. Stargate SG1 was actually soft disclosure of how the real world works but that's a story for another thread. Look up "Vril Lizards" for more information on real Goa'uld. Many of the elites you see today, their host body may be young, but the parsite inside it is thousands of years old. Bill Gates used to be a real person at first until he started gaining traction, then the elites came for him, inserted the Serpent parasite which hijacked his body and original (real) Bill Gates is dead now, but his body lives on controlled by the Serpent. Everything leads back to the parasitic (and fungal) hivemind's influence of humanity. You can communicate with the benevolent intelligence through Mushrooms.
 
 See pics for more information on everything I said and more. Also, full document:
-[https://files.catbox.moe/9rbtxh.pdf](https://files.catbox.moe/9rbtxh.pdf)
+[https://files.catbox.moe/9rbtxh.pdf](/9rbtxh.pdf)
 
 **End of conspiracy
