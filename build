@@ -4,6 +4,9 @@
 main() {
   local BASEDIR="/home/patrick/repos/github/freebootin/freebootin-dot-com"
   local TMPDIR="${BASEDIR}/tmp"
+  local REF=$(stat -c %Y ${BASEDIR}/ref)
+  echo ${REF}
+
   mkdir "${TMPDIR}"
 
   for dir in ${BASEDIR}/site/*/; do
@@ -13,11 +16,12 @@ main() {
       --template="${BASEDIR}/templates/article.html" \
       --standalone "${dir}README.md"
 
-    for file in ${dir}*; do
-      if [[ ${file} != "README.md" ]]; then
-        cp ${file} "${TMPDIR}"
-      fi
-    done
+# TODO move non-README.md archiving to serperate function
+#     for file in ${dir}*; do
+#       if [[ ${file} != "README.md" ]]; then
+#         cp ${file} "${TMPDIR}"
+#       fi
+#     done
   done
 
   echo "Adding common files to archive..."
