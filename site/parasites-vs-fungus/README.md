@@ -17,4 +17,4 @@ The Elites obey the orders from the interdimensional worm intelligence that are 
 See pics for more information on everything I said and more. Also, full document:
 [9rbtxh.pdf](/9rbtxh.pdf)
 
-**End of conspiracy
+**End of conspiracy**
