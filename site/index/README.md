@@ -3,6 +3,11 @@ title: Home
 date: 04/26/22
 keywords: [index]
 ---
+## Articles of Interest
+Articles I am currently interested in.
+
+- [Tech Articles](/tech-articles.html)
+
 ## Conspiracy Theories
 Conspiracy theories are some of the most entertaining writing I have read
 recently.  I don't believe any of these are true, just entertaining.
