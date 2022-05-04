@@ -22,7 +22,6 @@ These are sites I find interesting or useful.
 
 - [cat-v.org](http://cat-v.org/)
 - [Dig Deeper](https://digdeeper.neocities.org/)
-- [Learn Perl in about 2 hours 30 minutes](https://qntm.org/perl_en)
 - [Luke Smith's Homepage](https://lukesmith.xyz)
 - [Rob Muhlestein](https://github.com/rwxrob)
 - [soma.cx](https://soma.cx)
