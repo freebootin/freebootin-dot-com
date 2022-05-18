@@ -8,6 +8,11 @@ Articles I am currently interested in.
 
 - [Tech Articles](/tech-articles.html)
 
+## Wargame Write-ups
+Write-ups for wargames I've worked through. These contain spoilers obviously, but not passwords or flags.
+
+- [Bandit](/bandit.html): an entry level wargame form [OverTheWire](https://overthewire.org/wargames/).
+
 ## Conspiracy Theories
 Conspiracy theories are some of the most entertaining writing I have read
 recently.  I don't believe any of these are true, just entertaining.
