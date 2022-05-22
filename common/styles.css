@@ -14,3 +14,7 @@ nav li {
   list-style: none;
   display: inline;
 }
+
+footer {
+  margin-bottom: 100px;
+}
