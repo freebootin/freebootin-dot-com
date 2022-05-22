@@ -3,6 +3,10 @@ title: Home
 date: 05/18/22
 keywords: [index]
 ---
+## Technical Posts
+
+- [Scripting Basics](/scripting-basics.html)
+
 ## Articles of Interest
 Articles I am currently interested in.
 
