@@ -8,3 +8,4 @@ This is a list of some technical articles I currently find useful. This list wil
 
 - [Build a web application in Go](https://www.sohamkamani.com/golang/how-to-build-a-web-application/)
 - [Learn Perl in about 2 hours 30 minutes](https://qntm.org/perl_en)
+- [C Programming FAQs](http://c-faq.com)
