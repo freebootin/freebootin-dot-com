@@ -2,4 +2,4 @@
 
 ## TODOs
 
-- Add CSS for <code> tags.
+- Declutter the front page. 
