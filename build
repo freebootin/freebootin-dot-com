@@ -2,7 +2,7 @@
 # Build the freebootin.com website and produce an easy to upload archive.
 
 main() {
-  local BASEDIR="/home/patrick/repos/github/freebootin/freebootin-dot-com"
+  local BASEDIR=$(pwd)
   local TMPDIR="${BASEDIR}/tmp"
   local REF=$(stat -c %Y ${BASEDIR}/ref)
   echo ${REF}
