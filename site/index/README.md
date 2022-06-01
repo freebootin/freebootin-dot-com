@@ -3,6 +3,9 @@ title: Home
 date: 05/18/22
 keywords: [index]
 ---
+## Recommendations
+- [Book Recommendations](/book-recommendations.html)
+
 ## Technical Posts
 
 - [Scripting Basics](/scripting-basics.html)
