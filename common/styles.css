@@ -18,3 +18,7 @@ nav li {
 footer {
   margin-bottom: 100px;
 }
+
+a:visited {
+  color #B4088F; /* more vivid purple/violet for better contrast */
+}
