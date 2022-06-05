@@ -6,12 +6,6 @@ keywords: [wargames]
 ## Preface
 These are my writeups for the [Bandit](https://overthewire.org/wargames/bandit) wargame. This does contain spoilers, but not passwords.
 
----
->
-> SPOILERS AHEAD 
->
----
-
 ## Level 0
 
 You are supplied with a username `bandit0`, a host `bandit.labs.overthewire.org` a port number `2220`, and a password `bandit0`.
