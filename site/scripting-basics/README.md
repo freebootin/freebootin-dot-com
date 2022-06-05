@@ -1,6 +1,6 @@
 ---
 title: Scripting Basics
-date: 05/21/22
+date: 06/02/22
 keywords: [scripting, programming, commandline]
 ---
 
