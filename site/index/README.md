@@ -36,3 +36,4 @@ These are sites I find interesting or useful.
 - [soma.cx](https://soma.cx)
 - [TextEditors.org](https://www.texteditors.org/cgi-bin/wiki.pl)
 - [wiki.c2.com](http://wiki.c2.com/)
+- [Unix Sheikh](https://www.unixsheikh.com/index.html)
