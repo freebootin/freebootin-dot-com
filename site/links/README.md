@@ -14,3 +14,4 @@ keywords: [links]
 - [TextEditors.org](https://www.texteditors.org/cgi-bin/wiki.pl)
 - [Unix Sheikh](https://www.unixsheikh.com/index.html)
 - [wiki.c2.com](http://wiki.c2.com/)
+- [c-faq](http://c-faq.com/decl/index.html)
