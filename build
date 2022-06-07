@@ -2,9 +2,25 @@
 # Build the freebootin.com website and produce an easy to upload archive.
 
 main() {
+  local LOCAL_COPY=""
   local BASEDIR=$(pwd)
   local TMPDIR="${BASEDIR}/tmp"
   local REF=$(stat -c %Y ${BASEDIR}/ref)
+
+  while getopts "hl" option; do
+    case $option in
+      h) # display help
+        echo "Help message"
+        ;;
+      l) # build local copy
+        LOCAL_COPY=TRUE
+        ;;
+      \?) # everything else
+        echo "Invalid option passed."
+        ;;
+    esac
+  done
+
   echo ${REF}
 
   mkdir "${TMPDIR}"
@@ -32,10 +48,17 @@ main() {
   tar cfz ../upload.tar.gz *
   cd - > /dev/null
 
+  if [[ -n $LOCAL_COPY ]]; then
+    echo "Saving local copy to ${TMPDIR}"
+    echo "Done"
+    exit 0
+  fi
+
   echo "Cleaning up..."
   rm -r "${TMPDIR}"
 
   echo "Done"
+  exit 0
 }
 
-main
+main $@
