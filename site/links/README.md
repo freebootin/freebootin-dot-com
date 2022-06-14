@@ -6,16 +6,15 @@ keywords: [links]
 
 ## Sites
 
-- [cat-v.org](http://cat-v.org/)
-- [c-faq](http://c-faq.com/decl/index.html)
-- [Dig Deeper](https://digdeeper.neocities.org/)
-- [soma.cx](https://soma.cx)
-- [TextEditors.org](https://www.texteditors.org/cgi-bin/wiki.pl)
-- [wiki.c2.com](http://wiki.c2.com/)
+- [cat-v.org](http://cat-v.org/) Random Contrarian Insurgent Organization.
+- [c-faq](http://c-faq.com/index.html) Frequently asked questions about C.
+- [Dig Deeper](https://digdeeper.neocities.org/) Lots of internet privicy related content. Many interesting links.
+- [soma.cx](https://soma.cx) Retro site with lots of alternative/neo-reactionary articles.
+- [wiki.c2.com](http://wiki.c2.com/) Wiki site with mostly tech related articles. Hard to navigate, but with many rabbit holes.
 
 ## People
 
-- [Luke Smith](https://lukesmith.xyz)
-- [Martin Goldberg](https://martingoldberg.net/)
-- [Rob Muhlestein](https://github.com/rwxrob)
-- [Unix Sheikh](https://www.unixsheikh.com/index.html)
+- [Luke Smith](https://lukesmith.xyz) Thiry year old boomer rants about modernity.
+- [Martin Goldberg](https://martingoldberg.net/) Monotone, blackpilled centrist.
+- [Rob Muhlestein](https://github.com/rwxrob) Hippie programmer. Watch his 'boost' series on YouTube to get up to speed on tech.
+- [Unix Sheikh](https://www.unixsheikh.com/index.html) Graybeard, sysadmin wisdom.
