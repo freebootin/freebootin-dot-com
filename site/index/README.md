@@ -1,6 +1,6 @@
 ---
 title: Home
-date: 06/02/22
+date: 06/14/22
 keywords: [index]
 ---
 ## Recommendations
@@ -19,7 +19,7 @@ Write-ups for wargames I've worked through. These contain spoilers obviously, bu
 ## Entertainment 
 
 ### Conspiracy Theories
-Conspiracy theories are some of the most entertaining fictions writing of the modern era.  I don't believe any of these are true, just entertaining.
+Conspiracy theories are some of the most entertaining fiction writing of the modern era.  I don't believe any of these are true, just entertaining.
 
 - [Buildings are Sentient and Evil](/buildings-are-evil.html)
 - [The Mushroom Conspiracy](/mushroom-conspiracy.html)
