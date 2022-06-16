@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" contents="Patrick Kane">
+  <title>Freebootin - Scripting Basics</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" size="16x16" href="/favicon-16x16.png">
+</head>
+<body>
+<header>
+  <h1>Freebootin.com</h1>
+  <p>Page updated: 06/02/22</p>
+  <nav>
+    <ul>
+      <li><a href="https://freebootin.com">Home</a></li>
+      <li><a href="https://github.com/freebootin">GitHub</a></li>
+      <li><a href="/links.html">Links</a></li>
+      <li>Twitter</li>
+    </ul>
+  </nav>
+</header>
+<hr>
+<h2 id="preface">Preface</h2>
+<p>Every computer user should know how to do basic scripting. It increases your productivity by an order of magnitude, and eliminates the need for many large programs. I would estimate that with just the unix core utilities and cURL you could script just about anything.</p>
+<h2 id="use-the-google-shell-style-guide">Use the Google Shell Style Guide</h2>
+<p>Regardless of your opinion on Google, their shell style guide very will done. You should read it and apply it to every script you right. Having a consistant way of writing scripts will help make your scripts easier to read when you come back to them a year later. Also this style guide will help you to avoid some of the common gotcha’s of shell scripting.</p>
+<p><a href="https://google.github.io/styleguide/shellguide.html">Google Shell Style Guide</a></p>
+<h2 id="use-shellcheck">Use ShellCheck</h2>
+<p>From the ShellCheck github:</p>
+<p>ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.</p>
+<p>The goals of ShellCheck are:</p>
+<ul>
+<li>To point out clarify typical beginner’s syntax issues that cause a shell to give cryptic error messages.</li>
+<li>To point out and clarify typical intermediate level semantic problems that cause a shell to behave strangly and counter-intuitively.</li>
+<li>To point out subtle caveats, corner cases and pitfalls that may cause an advanced user’s otherwise working script to fail under future circumstances.</li>
+</ul>
+<p>Every script you write should be run through ShellCheck. Not only will it catch a lot of bugs for you, it will also make you a better shell programmer.</p>
+<p>You can get ShellCheck though your package manager or from <a href="https://github.com/koalaman/shellcheck">github</a>.</p>
+<h2 id="tutorials">Tutorials</h2>
+<p>Besides the Google Shell Style Guide there are really only two shell tutorials that I ever found useful, the <code>bash</code> and <code>dash</code> man pages. Pretty much every other tutorial is useless for learning.</p>
+<h2 id="should-i-use-zsh">Should I use ZSH?</h2>
+<p>No. Bash is the default Linux shell. Eventually I will do a in depth video or writeup on the reasons why.</p>
+<!-- add keyword cloud here -->
+<hr>
+<footer>Copywrite 2022 Patrick Kane</footer>
+</body>
+</html>

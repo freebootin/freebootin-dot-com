@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="author" contents="Patrick Kane">
+  <title>Freebootin - Over The Wire Bandit Writeup</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/png" size="16x16" href="/favicon-16x16.png">
+</head>
+<body>
+<header>
+  <h1>Freebootin.com</h1>
+  <p>Page updated: </p>
+  <nav>
+    <ul>
+      <li><a href="https://freebootin.com">Home</a></li>
+      <li><a href="https://github.com/freebootin">GitHub</a></li>
+      <li><a href="/links.html">Links</a></li>
+      <li>Twitter</li>
+    </ul>
+  </nav>
+</header>
+<hr>
+<h2 id="preface">Preface</h2>
+<p>These are my writeups for the <a href="https://overthewire.org/wargames/bandit">Bandit</a> wargame. This does contain spoilers, but not passwords.</p>
+<h2 id="level-0">Level 0</h2>
+<p>You are supplied with a username <code>bandit0</code>, a host <code>bandit.labs.overthewire.org</code> a port number <code>2220</code>, and a password <code>bandit0</code>.</p>
+<ul>
+<li>First <code>ssh</code> into the system using <code>ssh bandit0@bandit.labs.overthewire.org -p 2220</code>. Enter the password when prompted to login.</li>
+<li>Read <code>readme</code> using <code>cat readme</code>.</li>
+</ul>
+<hr />
+<h2 id="level-1">Level 1</h2>
+<p>The password for the next level is stored in a file called <code>-</code> located in the home directory.</p>
+<p>You cannot open <code>-</code> directly with <code>cat</code> like in level0.</p>
+<ul>
+<li>To open <code>-</code> use a relative path <code>./-</code>.</li>
+<li>Use <code>cat ./-</code>.</li>
+<li>Copy the password and logout.</li>
+</ul>
+<hr />
+<h2 id="level-2">Level 2</h2>
+<p>The password for the next level is stored in a file called <code>spaces in this filename</code> located in the home directory.</p>
+<p>This is fundimentally the same problem as level 1. This time surround the filename in quotes. <code>Bash</code> autocompletion will actually do this for you.</p>
+<ul>
+<li>Login with <code>ssh</code>.</li>
+<li>Read <code>spaces in this filename</code> using <code>cat "spaces in this filename"</code>.</li>
+<li>Copy password and logout.</li>
+</ul>
+<hr />
+<h2 id="level-3">Level 3</h2>
+<p>The password for the next level is stored in a hidden file in the <code>inhere</code> directory.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>cd inhere</code> to get into the inhere directory.</li>
+<li>You can list out all files including hidden files using <code>ls -a</code>. This shows the file <code>.hidden</code>.</li>
+<li><code>cat .hidden</code> gets you the password.</li>
+</ul>
+<hr />
+<h2 id="level-4">Level 4</h2>
+<p>The password for the next level is stored in the only human-readable file in the <code>inhere</code> directory.</p>
+<ul>
+<li>Move into the <code>inhere</code> directory with <code>cd inhere</code>.</li>
+<li><code>ls</code> shows 10 files in <code>inhere</code>.</li>
+<li><code>file ./-file00</code> shows that <code>-file00</code> contains <code>data</code>, which is not human readable.</li>
+<li>Using <code>for file in *; do file ./"${file}"; done</code> I can run the <code>file</code> command on all the files in <code>inhere</code>.</li>
+<li>They all contain <code>data</code> except <code>-file07</code> which contains <code>ASCII Text</code> which should be human-readable.</li>
+<li><code>cat ./-file07</code> nets me the password.</li>
+</ul>
+<hr />
+<h2 id="level-5">Level 5</h2>
+<p>The password for the next level is stored in a file somewhere under the <code>inhere</code> directory and has all of the following properties:</p>
+<p>human-readable 1033 bytes in size not executable</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>cd inhere</code> to get into the <code>inhere</code> directory.</li>
+<li><code>ls -a</code> shows 18 directories, and <code>ls</code>ing one shows 9 files.</li>
+<li>Checking every file by hand would take awhile. Instead I used the <code>find</code> command.</li>
+<li>Using <code>find -type f -size 1033c ! -executable</code> returns one file <code>maybehere07/.file2</code>, and it has the password in it.</li>
+</ul>
+<p><code>find -type f -size 1033c ! -executable</code> breaks down to: - <code>-type f</code> look for a file. - <code>-size 1033c</code> it should be 1033 bytes in size. - <code>! -executable</code> file should NOT(!) be executable.</p>
+<hr />
+<h2 id="level-6">Level 6</h2>
+<p>The password for the next level is stored somewhere on the server and has all of the following properties: owned by user bandit7 owned by group bandit6 33 bytes in size</p>
+<p>This is very similar to the last level.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>ls -a</code> shows no files or directories in my home directory. Password can’t be here.</li>
+<li><code>cd ..</code> to move up a directory into <code>/home/</code>.</li>
+<li>To search all these I used <code>find -type f -user bandit7 -group bandit6 -size 33c 2&gt;/dev/null</code>. The <code>2&gt;/dev/null</code> sends any error messages into the void. This gets rid of any <code>Permission failed</code> messages.</li>
+<li><code>/home/</code> does not contain the file. Move up one more <code>cd ..</code>.</li>
+<li>Running my <code>find</code> command in <code>/</code> yields <code>./var/lib/dpkg/info/bandit7.password</code>, which contains the password.</li>
+</ul>
+<hr />
+<h2 id="level-7">Level 7</h2>
+<p>The password for the next level is stored in the file data.txt next to the word millionth.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>ls</code> shows that <code>data.txt</code> is in my home directory.</li>
+<li>Use <code>grep millionth data.txt</code> searches the file for any lines containing ‘millionth’ and returns the password.</li>
+</ul>
+<hr />
+<h2 id="level-8">Level 8</h2>
+<p>The password for the next level is stored in the file data.txt and is the only line of text that occurs only once.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>ls</code> shows <code>data.txt</code> is in my home directory.</li>
+<li>Looking at <code>data.txt</code> it contains thousands of possible passwords.</li>
+<li>To sort through them I used <code>sort data.txt | uniq -u</code>. This outputs the only unique line in the file, the password.</li>
+</ul>
+<hr />
+<h2 id="level-9">Level 9</h2>
+<p>The password for the next level is stored in the file data.txt in one of the few human-readable strings, preceded by several ‘=’ characters.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>ls</code> shows <code>data.txt</code> is in my home directory.</li>
+<li>The <code>strings</code> utility will output all the ascii strings it finds in a file.</li>
+<li>Using <code>strings data.txt | grep ===</code> gets me all the strings with at least 3 ’=’s in them. This yields the password.</li>
+</ul>
+<hr />
+<h2 id="level-10">Level 10</h2>
+<p>The password for the next level is stored in the file data.txt, which contains base64 encoded data.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>data.txt</code> is in the home directory.</li>
+<li>Use <code>base64 --decode data.txt</code> to decode <code>data.txt</code>, giving the password.</li>
+</ul>
+<hr />
+<h2 id="level-11">Level 11</h2>
+<p>The password for the next level is stored in the file data.txt, where all lowercase (a-z) and uppercase (A-Z) letters have been rotated by 13 positions.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>data.txt</code> is in the home directory.</li>
+<li>Inspecting the contents shows gibberish. The level goal tells you how to read it though. You could manually move every character 13 positions or you could use <code>tr</code>, a find an replace utility.</li>
+<li>Use <code>tr a-mA-Mn-zN-Z n-zN-Za-mA-M &lt; data.txt</code> to “decrypt” the password. The wierd string after <code>tr</code> is the transform. It tells <code>tr</code> that it should take all charactor inputs in the range a-m and change it to an equivilent position in the range n-z, and A-M to N-Z, etc.</li>
+</ul>
+<hr />
+<h2 id="level-12">Level 12</h2>
+<p>The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed.</p>
+<p>This level was more annoying than difficult.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li><code>data.txt</code> is found in the home directory.</li>
+<li><code>data.txt</code> is a hex dump of another file. To get the original file back you need to ‘un-dump’ it. This is done with <code>xxd -r data.txt</code> the <code>-r</code> option reverses the dump.</li>
+<li>Reverse the dump and put it in a new file <code>data</code>. Running <code>file data</code> shows that this is a <code>gzip</code> archive.</li>
+<li>What follows next is repeatedly unzipping archives. There are three kinds used <code>gzip</code>, <code>bzip2</code> and <code>tar</code>. After each is uncompressed use <code>file</code> to see which command you need next.</li>
+<li>Commands used: <code>gunzip &lt;file&gt;</code> for gzip, <code>bzip2 -d &lt;file&gt;</code>, for bzip2, and <code>tar -xf &lt;file&gt;</code> for tarballs.</li>
+<li>There are 9 file in total to decompress before finding the password.</li>
+</ul>
+<hr />
+<h2 id="level-13">Level 13</h2>
+<p>The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>In the home directory you find <code>sshkey.private</code>. This is a private ssh key that you can use to access the bandit14 user on the current machine.</li>
+<li>Using <code>ssh bandit14@localhost -i sshkey.private</code> you can log on as bandit14 and get the password from <code>/etc/bandit_pass/bandit14</code>. Here localhost is the name of your current machine (the bandit server) and <code>-i</code> points <code>ssh</code> to what key file you want it to use.</li>
+</ul>
+<hr />
+<h2 id="level-14">Level 14</h2>
+<p>The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>To send something to a port on a host the easiest way is through <code>netcat</code> or <code>nc</code>. <code>netcat</code> opens a TCP or UDP connection between you and a host:port, which you can then use to send data and text.</li>
+<li>Using <code>nc localhost 30000</code> you can open a connection to port 30000, then send the password from the previous level and a server on port 30000 will send you the next password.</li>
+</ul>
+<hr />
+<h2 id="level-15">Level 15</h2>
+<p>The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.</p>
+<p>This is a lot like level 14, except a different client program is used.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>Trying to use <code>nc</code> doesn’t work as <code>nc</code> does not implement SSL encryption.</li>
+<li>Browsing through the <code>man</code> pages of the suggested commands, it looks like <code>s_client</code> should be able to replicate <code>nc</code>’s function, but with encryption.</li>
+<li>Using <code>openssl s_client -connect localhost:30001</code> gets me the same function that <code>nc</code> got for me in the last level. Enter the password for the last level and the server gives you the password for the next.</li>
+</ul>
+<hr />
+<h2 id="level-16">Level 16</h2>
+<p>The credentials for the next level can be retieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>Now we have to find which ports from 31k to 32k are open. We can do that with <code>nmap</code> using <code>nmap -PS localhost -p 31000-32000</code>. This gave me ports 31046, 31518, 31691, 31790, and 31960.</li>
+<li>We can use the same command from the last level to try to access each of these ports using SSL <code>openssl s_client -connect localhost:port</code></li>
+<li>This can be scripted using <code>for port in 31046 31518 31691 31790 31960; do openssl s_client -connect localhost:"${port}"; done</code>. If the port doesn’t speak SSL the connection will be refused and the script will try the next port. When a port does connect with SSL it will prompt you to enter a password. Then it gives you a response and closes the connection. Keep entering the password until a port gives you a SSL certificate.</li>
+</ul>
+<hr />
+<h2 id="level-17">Level 17</h2>
+<p>There are 2 files in the home directory: passwords.old and passwords.new. The password for the next level is in passwords.new and is the only line that has been changed between passwords.old and passwords.new.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>We can use <code>diff</code> to view differences between two files.</li>
+<li>Use <code>diff passwords.old passwords.new</code>, this shows us the password from passwords.new.</li>
+</ul>
+<hr />
+<h2 id="level-18">Level 18</h2>
+<p>The password for the next level is stored in a file <strong>readme</strong> in the homedirectory. Unfortunately, someone has modified <strong>.bashrc</strong> to log you out when you log in with SSH.</p>
+<ul>
+<li><code>ssh</code> into the server…get bumped out.</li>
+<li>Turns out <code>ssh</code> can run commands remotely: <code>ssh bandit18@bandit.labs.overthewire.org -p 2220 [command]</code>.</li>
+<li>Knowing this, and knowing that <strong>readme</strong> is in the home directory we can use <code>ssh bandit18@bandit.labs.overthewire.org -p 2220 cat readme</code> to get the password.</li>
+</ul>
+<hr />
+<h2 id="level-19">Level 19</h2>
+<p>To gain access to the next level, you should use the setuid binary in the homedirectory. Execute it without arguments to find out how to use it. The password for this level can be found in the usual place (/etc/bandit_pass), after you have used the setuid binary.</p>
+<ul>
+<li><code>ssh</code> into the server.</li>
+<li>Running the <code>bandit20-do</code> binary tells you that it runs a command as the bandit20 user.</li>
+<li>Using this binary we can view the password. <code>bandit20-do cat /etc/bandit_pass/bandit20</code>.</li>
+</ul>
+<hr />
+<h2 id="level-20">Level 20</h2>
+<p>There is a setuid binary in the home directory that does the following: it makes a connection to localhost on the port you specify as a commandline argument. It then reads a line of text from the connection and compares it to the password in the previous level (bandit20). If the password is correct, it will transmit the password for the next level (bandit21).</p>
+<!-- add keyword cloud here -->
+<hr>
+<footer>Copywrite 2022 Patrick Kane</footer>
+</body>
+</html>

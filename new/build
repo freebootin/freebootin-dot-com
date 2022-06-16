@@ -1,0 +1,3 @@
+#!/bin/sh
+
+cat header.html footer.html > test.html
