@@ -6,12 +6,13 @@ keywords: [index]
 ## Recommendations
 - [Book Recommendations](/book-recommendations.html)
 
-## Technical Resouces
+## Technical Resources
 
 - [Scripting Basics](/scripting-basics.html) What I would have told myself when I started.
 - [Tech Articles](/tech-articles.html) Interesting tech related articles.
 - [Workflows](/workflows.html) Different workflows for getting things done.
 - [Comptia Network+ Study Material](/network-plus.html) Study material for the Comptia Network+ exam.
+- [Learning Tips](/learning.html) Tips on how to learn based on my experience.
 
 ## Wargame Write-ups
 Write-ups for wargames I've worked through. These contain spoilers obviously, but not passwords or flags.
