@@ -12,6 +12,7 @@ keywords: [index]
 - [Tech Articles](/tech-articles.html) Interesting tech related articles.
 - [Workflows](/workflows.html) Different workflows for getting things done.
 - [Comptia Network+ Study Material](/network-plus.html) Study material for the Comptia Network+ exam.
+- [Comptia Security+ Study Material](/security-plus.html) Study material for the Comptia Security+ exam.
 - [Learning Tips](/learning.html) Tips on how to learn based on my experience.
 
 ## Wargame Write-ups
