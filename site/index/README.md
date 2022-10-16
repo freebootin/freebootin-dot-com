@@ -1,6 +1,6 @@
 ---
 title: Home
-date: 06/21/22
+date: 10/15/22
 keywords: [index]
 ---
 ## Recommendations
@@ -19,6 +19,7 @@ keywords: [index]
 Write-ups for wargames I've worked through. These contain spoilers obviously, but not passwords or flags.
 
 - [Bandit](/bandit.html): an entry level wargame form [OverTheWire](https://overthewire.org/wargames/).
+- [Laviathan](/leviathan.html): another wargame from [OverTheWire](https://overthewire.org/wargames/).
 
 ## Entertainment 
 
