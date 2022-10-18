@@ -59,3 +59,35 @@ system("/bin/cat /home/leviathan2/printf"...ELF4H64
 `
 
 Now here you can see that `access` has returned a 0, meaning access granted. Now I can also see the `system` command being executed. This tells me exactly what command the program is running, and it looks like it is passing the string created by `snprintf` earlier.
+
+If you look at the man page for `cat` you see that it can take any number of files as arguments and it will display them all concatenated together, and to do this it has to open both files. Now even though `printfile` is just passing a string to `cat`, that string is only made up of the first argument to `printfile`, any other arguments are discarded. One cool thing, and this took a long while to figure out, if you pass a file to `printfile` that contains a space, then it will try to call `cat` on both files. 
+
+Here I passed `printfile` another file I created called `dog bird` that my user owns. You can see `access` returns 0, allowing me to continue then you can see it runs `cat` on both files.
+
+`
+leviathan2@gibson:/tmp/tmp.FRyEyTJ4PQ$ ltrace ~/printfile dog\ bird
+__libc_start_main(0x80491e6, 2, 0xffffd5a4, 0 <unfinished ...>
+access("dog bird", 4)                                                    = 0
+snprintf("/bin/cat dog bird", 511, "/bin/cat %s", "dog bird")            = 17
+geteuid()                                                                = 12002
+geteuid()                                                                = 12002
+setreuid(12002, 12002)                                                   = 0
+system("/bin/cat dog bird"/bin/cat: dog: No such file or directory
+/bin/cat: bird: No such file or directory
+ <no return ...>
+--- SIGCHLD (Child exited) ---
+<... system resumed> )                                                   = 256
++++ exited (status 0) +++
+`
+
+One last thing to notice is that `access` is only testing the file I gave it `dog bird`, but it is NOT running `cat` against that file, but rather two nonexistent files `dog` and `bird`, and it is looking for them in my current directory. This is all the information you need to get the password.
+
+The final solution is to create a file in your temp directory that ends in `\ leviathan3`. Next `cd` into `/etc/leviathan_pass`, finally run `~/printfile [full path to temp file]`.
+
+`
+leviathan2@gibson:/etc/leviathan_pass$ ~/printfile /tmp/tmp.FRyEyTJ4PQ/solution\ leviathan3
+/bin/cat: /tmp/tmp.FRyEyTJ4PQ/solution: Permission denied
+********** <- password will be here
+`
+
+
