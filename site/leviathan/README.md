@@ -90,4 +90,39 @@ leviathan2@gibson:/etc/leviathan_pass$ ~/printfile /tmp/tmp.FRyEyTJ4PQ/solution\
 ********** <- password will be here
 `
 
+### Level 3
 
+Logging in there is a suid binary `level3`. Running it prompts you for a password then exits when you enter the wrong one.
+
+`
+leviathan3@gibson:~$ ./level3
+Enter the password> nothing
+bzzzzzzzzap. WRONG
+`
+
+Checking `strings` and `hexdump` reveals some odd strings, but none of them work as the password. Running `level3` with `ltrace` shows:
+
+`
+leviathan3@gibson:~$ ltrace ./level3
+__libc_start_main(0x80492bf, 1, 0xffffd5f4, 0 <unfinished ...>
+strcmp("h0no33", "kakaka")                                               = -1
+printf("Enter the password> ")                                           = 20
+fgets(Enter the password> kakaka
+"kakaka\n", 256, 0xf7fab620)                                       = 0xffffd3cc
+strcmp("kakaka\n", "snlprintf\n")                                        = -1
+puts("bzzzzzzzzap. WRONG"bzzzzzzzzap. WRONG
+)                                               = 19
++++ exited (status 0) +++
+`
+
+The first `strcmp` checks two of the strings you can find parts of in the hexdump but entering either as the password does not get me anywhere. More interesting is the second `strcmp` that compares what I entered as the password to "snlprintf". Using "snlprintf" as the password gets me a shell. Running `id` shows that my uid is now "leviathan4". Now I just cat out /etc/leviathan_pass/leviathan4 and get the password.
+
+`
+leviathan3@gibson:~$ ./level3
+Enter the password> snlprintf
+[You've got shell]!
+$ id
+uid=12004(leviathan4) gid=12003(leviathan3) groups=12003(leviathan3)
+$ cat /etc/leviathan_pass/leviathan4
+********** <- password appears here
+`
