@@ -1,6 +1,6 @@
 ---
 title: Leviathan Wargame
-date: 10/15/22
+date: 10/18/22
 keywords: [wargame hacking]
 ---
 ## Leviathan
