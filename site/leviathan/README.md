@@ -134,3 +134,24 @@ After logging in the only interesting thing in the home directory is a hidden di
 ### Level 5
 
 Logging in there is a suid binary in the home directory, `leviathan5`. Running it gives an output of "Cannot find /tmp/file.log". Now on this box you can't read from `/tmp`, but you can write to it. Creating the log file with `touch /tmp/file.log` and then rerunning `leviathan5` gives me no output, but my temp file appears to be deleted.
+
+When I run `leviathan5` after creating `/tmp/file.log` I get the following from `ltrace`:
+
+`
+leviathan5@gibson:/tmp/tmp.lQz0mHaHeG$ ltrace ~/leviathan5
+__libc_start_main(0x8049206, 1, 0xffffd5b4, 0 <unfinished ...>
+fopen("/tmp/file.log", "r")                                              = 0x804d1a0
+fgetc(0x804d1a0)                                                         = '\377'
+feof(0x804d1a0)                                                          = 1
+fclose(0x804d1a0)                                                        = 0
+getuid()                                                                 = 12005
+setuid(12005)                                                            = 0
+unlink("/tmp/file.log")                                                  = 0
++++ exited (status 0) +++
+`
+
+Those calls to `fgetc` and `feof` are probably where I need to go next.
+
+So those two functions are getting single characters from `/tmp/file.log` and checking for EOF respectively. Now if I write something in `/tmp/file.log` then `leviathan5` outputs it to STDIN. This gave me the idea to try making `/tmp/file.log` into a symbolic link to `/etc/leviathan_pass/leviathan6` to see if it would print out the password. It worked. On to next level.
+
+### Level 6
