@@ -126,3 +126,11 @@ uid=12004(leviathan4) gid=12003(leviathan3) groups=12003(leviathan3)
 $ cat /etc/leviathan_pass/leviathan4
 ********** <- password appears here
 `
+
+### Level 4
+
+After logging in the only interesting thing in the home directory is a hidden directory called `.trash`. Inside `.trash` is a suid binary called `bin`. Running `bin` outputs a series of eleven binary strings. Using `ltrace` shows that `bin` is opening `/etc/leviathan_pass/leviathan5`, which has the password. Now every password so far has been ten ascii characters long. I guessed that those binary strings are just the password in binary plus a newline. So I ran the binary through a binary to ascii text converter I found online and tried the resulting string as the password to level 5. It worked.
+
+### Level 5
+
+Logging in there is a suid binary in the home directory, `leviathan5`. Running it gives an output of "Cannot find /tmp/file.log". Now on this box you can't read from `/tmp`, but you can write to it. Creating the log file with `touch /tmp/file.log` and then rerunning `leviathan5` gives me no output, but my temp file appears to be deleted.
