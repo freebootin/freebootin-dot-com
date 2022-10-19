@@ -159,3 +159,5 @@ So those two functions are getting single characters from `/tmp/file.log` and ch
 On logging in the only thing in the home directory is the suid `leviathan7`. Running it I get "usage: ./leviathan6 <4 digit code>". I could try the same `ltrace` shenanagins I've been doing, or I could run a one liner like, `for i in $(seq -f "%04g" 0 9999); do ~/leviathan6 $i; done` and try all 10,000 combinations. Running my one liner got me a shell which I used to cat out /etc/levianthan_pass/leviathan7 for the password.
 
 ### Level 7
+
+There is no puzzle, just a congratulations message.
