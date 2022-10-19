@@ -152,6 +152,6 @@ unlink("/tmp/file.log")                                                  = 0
 
 Those calls to `fgetc` and `feof` are probably where I need to go next.
 
-So those two functions are getting single characters from `/tmp/file.log` and checking for EOF respectively. Now if I write something in `/tmp/file.log` then `leviathan5` outputs it to STDIN. This gave me the idea to try making `/tmp/file.log` into a symbolic link to `/etc/leviathan_pass/leviathan6` to see if it would print out the password. It worked. On to next level.
+So those two functions are getting single characters from `/tmp/file.log` and checking for EOF respectively. Now if I write something in `/tmp/file.log` then `leviathan5` outputs it to STDIN. This gave me the idea to try making `/tmp/file.log` into a symbolic link to `/etc/leviathan_pass/leviathan6` to see if it would print out the password. I ran `ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log`, then `~/leviathan5` and it worked. On to next level.
 
 ### Level 6
