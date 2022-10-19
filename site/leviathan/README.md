@@ -155,3 +155,7 @@ Those calls to `fgetc` and `feof` are probably where I need to go next.
 So those two functions are getting single characters from `/tmp/file.log` and checking for EOF respectively. Now if I write something in `/tmp/file.log` then `leviathan5` outputs it to STDIN. This gave me the idea to try making `/tmp/file.log` into a symbolic link to `/etc/leviathan_pass/leviathan6` to see if it would print out the password. I ran `ln -s /etc/leviathan_pass/leviathan6 /tmp/file.log`, then `~/leviathan5` and it worked. On to next level.
 
 ### Level 6
+
+On logging in the only thing in the home directory is the suid `leviathan7`. Running it I get "usage: ./leviathan6 <4 digit code>". I could try the same `ltrace` shenanagins I've been doing, or I could run a one liner like, `for i in $(seq -f "%04g" 0 9999); do ~/leviathan6 $i; done` and try all 10,000 combinations. Running my one liner got me a shell which I used to cat out /etc/levianthan_pass/leviathan7 for the password.
+
+### Level 7
