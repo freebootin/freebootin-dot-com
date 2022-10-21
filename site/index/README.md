@@ -1,6 +1,6 @@
 ---
 title: Home
-date: 10/15/22
+date: 10/20/22
 keywords: [index]
 ---
 ## Recommendations
@@ -20,6 +20,7 @@ Write-ups for wargames I've worked through. These contain spoilers obviously, bu
 
 - [Bandit](/bandit.html): an entry level wargame form [OverTheWire](https://overthewire.org/wargames/).
 - [Laviathan](/leviathan.html): another wargame from [OverTheWire](https://overthewire.org/wargames/).
+- [Narnia](/narnia.html): [OverTheWire](https://overthewire.org/wargames/narnia/) wargame focusing on basic exploits.
 
 ## Entertainment 
 
