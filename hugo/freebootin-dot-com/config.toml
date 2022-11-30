@@ -1,0 +1,4 @@
+baseURL = "http://freebootin.com/"
+languageCode = "en-us"
+title = "Freebootin"
+theme = "risotto"
