@@ -2,3 +2,6 @@ baseURL = "http://freebootin.com/"
 languageCode = "en-us"
 title = "Freebootin"
 theme = "freebootin-site"
+
+[params]
+        favicon = "/favicon.ico"
