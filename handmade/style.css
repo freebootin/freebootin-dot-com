@@ -1,0 +1,36 @@
+body {
+        margin: auto;
+        max-width: 900px;
+        padding: 10px;
+}
+
+nav {
+        text-align: center;
+        margin-top: 1em;
+}
+
+footer {
+        min-height: 100px;
+}
+
+nav, a {
+        margin-top: 0.5em;
+        text-decoration: none;
+}
+
+span.hide {
+        display: none;
+}
+
+@media (min-width:768px) {
+        nav {
+                text-align: left;
+                margin-left: 1em;
+        }
+        br.breaker {
+                display: none;
+        }
+        span.hide {
+                display: initial;
+        }
+}
